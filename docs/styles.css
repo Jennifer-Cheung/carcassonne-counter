@@ -1,0 +1,88 @@
+* {
+    box-sizing: border-box;
+    font-family: 'Yusei Magic', Arial, sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    margin: 0;
+    background-color: #f0f0f0;
+}
+
+#upper-part {
+    display: flex;
+    min-height: 60vh;
+    margin: 0;
+    justify-content: center;
+    align-items: center;
+    /* border: 10px solid black; */
+    justify-content: space-evenly;
+}
+
+.player-card {
+    /* border: 2px solid black; */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+    background-color: #edf8f3;
+    height: 40vh;
+    width: 27vh;
+    color: #0a585e;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.player-card:active, .player-card.active:active {
+    background-color: rgb(145, 145, 145);
+}
+
+.player-card.active {
+    background-color: #adcabd;
+}
+
+.player-name, .score {
+    display: flex;
+    justify-content: center;
+    margin: 10px;
+    font-size: 24px;
+}
+
+.player-name {
+    margin-bottom: 30px;
+    font-size: 29px;
+}
+
+#add-panel {
+    /* border: 5px solid black; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 30vh;
+}
+
+
+
+#input-score, #add-btn {
+    margin: 0px;
+    font-size: 24px;
+}
+
+#input-score {
+    margin-right: 15px;
+}
+
+input, button {
+    border-radius: 50px;
+    padding: 10px 25px;
+    outline: none;
+}
+
+input {
+    border: 1px solid #999;
+}
+
+button {
+    color: #fff;
+    background-color: #44C08A;
+    border: none;
+}
