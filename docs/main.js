@@ -36,6 +36,7 @@ addBtn.addEventListener('click', e => {
   if (selectedPlayerIndex !== null) {
     playerScores[PLAYER_NAMES[selectedPlayerIndex]] += inputValue
     updateCardScores()
+    input.value = null
   } else {
     window.alert('Select a name first.')
   }
