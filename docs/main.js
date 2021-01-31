@@ -11,11 +11,16 @@ const addBtn = document.getElementById('add-btn')
 const input = document.getElementById('input-score')
 
 playerCardElems.forEach(playerCardElem => playerCardElem.addEventListener('click', e => {
-  e.stopPropagation() // stops bubbuling to parent lest parent knows that it is clicked
-  selectedPlayerIndex = PLAYER_NAMES.indexOf(playerCardElem.id)
+  // e.stopPropagation() // stops bubbuling to parent lest parent knows that it is clicked
+  if (playerCardElems.indexOf(playerCardElem) === selectedPlayerIndex) {
+    selectedPlayerIndex = null
+    playerCardElems.forEach(cardElem => cardElem.classList.remove('active'))
+  } else {
+    selectedPlayerIndex = PLAYER_NAMES.indexOf(playerCardElem.id)
 
-  playerCardElems.forEach(cardElem => cardElem.classList.remove('active'))
-  playerCardElems[selectedPlayerIndex].classList.add('active')
+    playerCardElems.forEach(cardElem => cardElem.classList.remove('active'))
+    playerCardElems[selectedPlayerIndex].classList.add('active')
+  }
 }))
 
 /**
@@ -26,7 +31,7 @@ const updateCardScores = () => playerCardElems.forEach(playerCardElem => {
 })
 
 addBtn.addEventListener('click', e => {
-  e.stopPropagation() // stops bubbuling to parent lest parent knows that it is clicked
+  // e.stopPropagation() // stops bubbuling to parent lest parent knows that it is clicked
   // input validation
   if (input.value.trim() === '') {
     window.alert('Please input some number')
@@ -42,19 +47,19 @@ addBtn.addEventListener('click', e => {
   }
 })
 
-document.body.addEventListener('click', () => {
-  playerCardElems.forEach(card => card.classList.remove('active'))
-  selectedPlayerIndex = null
-})
+// document.body.addEventListener('click', () => {
+//   playerCardElems.forEach(card => card.classList.remove('active'))
+//   selectedPlayerIndex = null
+// })
 
-input.addEventListener('click', e => {
-  e.stopPropagation() // stops bubbuling to parent lest parent knows that it is clicked
-})
+// input.addEventListener('click', e => {
+//   e.stopPropagation() // stops bubbuling to parent lest parent knows that it is clicked
+// })
 
 const resetBtn = document.getElementById('reset-btn')
 
 resetBtn.addEventListener('click', e => {
-  e.stopPropagation()
+  // e.stopPropagation()
   for (let i = 0; i < playerCardElems.length; i++) {
     playerScores[PLAYER_NAMES[i]] = 0
     updateCardScores()
