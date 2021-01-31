@@ -53,7 +53,8 @@ input.addEventListener('click', e => {
 
 const resetBtn = document.getElementById('reset-btn')
 
-resetBtn.addEventListener('click', () => {
+resetBtn.addEventListener('click', e => {
+  e.stopPropagation()
   for (let i = 0; i < playerCardElems.length; i++) {
     playerScores[PLAYER_NAMES[i]] = 0
     updateCardScores()
