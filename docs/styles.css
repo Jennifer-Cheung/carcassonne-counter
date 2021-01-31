@@ -63,7 +63,7 @@ body {
 
 
 
-#input-score, #add-btn {
+#input-score, #add-btn, #reset-btn {
     margin: 0px;
     font-size: 24px;
 }
@@ -95,4 +95,13 @@ button:hover {
 
 button:active {
     background-color:  #289c6a;
+}
+
+#reset-btn {
+    margin-right: 15px;
+    background-color: #CE4760;
+}
+
+#reset-btn:active {
+    background-color: #b4344b;
 }

@@ -11,7 +11,7 @@ const addBtn = document.getElementById('add-btn')
 const input = document.getElementById('input-score')
 
 playerCardElems.forEach(playerCardElem => playerCardElem.addEventListener('click', e => {
-  e.stopPropagation()
+  e.stopPropagation() // stops bubbuling to parent lest parent knows that it is clicked
   selectedPlayerIndex = PLAYER_NAMES.indexOf(playerCardElem.id)
 
   playerCardElems.forEach(cardElem => cardElem.classList.remove('active'))
@@ -26,7 +26,7 @@ const updateCardScores = () => playerCardElems.forEach(playerCardElem => {
 })
 
 addBtn.addEventListener('click', e => {
-  e.stopPropagation()
+  e.stopPropagation() // stops bubbuling to parent lest parent knows that it is clicked
   // input validation
   if (input.value.trim() === '') {
     window.alert('Please input some number')
@@ -48,5 +48,14 @@ document.body.addEventListener('click', () => {
 })
 
 input.addEventListener('click', e => {
-  e.stopPropagation()
+  e.stopPropagation() // stops bubbuling to parent lest parent knows that it is clicked
+})
+
+const resetBtn = document.getElementById('reset-btn')
+
+resetBtn.addEventListener('click', () => {
+  for (let i = 0; i < playerCardElems.length; i++) {
+    playerScores[PLAYER_NAMES[i]] = 0
+    updateCardScores()
+  }
 })
